@@ -1,4 +1,4 @@
-import { ChefHat, Menu } from "lucide-react";
+import { ChefHat, Menu, X } from "lucide-react";
 import NavBar from "../components/NavBar";
 import "../css/Header.css"
 import { useState } from "react";
@@ -17,7 +17,7 @@ const [isIcon,setIsIcon]=useState(false)
         </div>
 
         <div className="menu">
-           <button className="menu-icon" onClick={()=>setIsIcon(!isIcon)}> <Menu /></button>
+           <button className="menu-icon" onClick={()=>setIsIcon(!isIcon)}>{!isIcon? <Menu />:<X/>}</button>
         </div>
     </header>
 
