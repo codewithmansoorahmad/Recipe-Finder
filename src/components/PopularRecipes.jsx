@@ -16,7 +16,7 @@ export default function PopularRecipes({recipes}){
 <h3>{item.name}</h3>
 <div className="rat-time">
     <p>{item.rating} <span className="icon"><Star/></span></p>
-    <p>{item.cookTimeMinutes} <span className="icon"><Clock/></span></p>
+    <p>{item.cookTimeMinutes} min <span className="icon"><Clock/></span></p>
 </div>
 <p>{item.cuisine}</p>
 <button>view recipe <span className="icon"><ArrowRight/></span></button>

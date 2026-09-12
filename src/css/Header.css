@@ -38,6 +38,9 @@
 .menu{ 
     display: none; 
 }
+.active{
+    border-bottom: 1px solid red;
+}
 
 .open-links{ 
     display: flex;
