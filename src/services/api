@@ -1,0 +1,9 @@
+export const base_url="https://dummyjson.com/recipes";
+
+
+export async function callApi(limit){
+   let res=await fetch(base_url+"?limit="+limit) 
+   let data=await res.json()
+   return data
+
+}
