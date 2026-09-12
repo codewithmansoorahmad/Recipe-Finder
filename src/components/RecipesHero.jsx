@@ -14,10 +14,21 @@ export default function RecipesHero(){
 
 
                     <option value="asian">asian</option>
+                    <option value="italian">Italian</option>
                     <option value="american">American</option>
+                    <option value="mediterranean">Mediterranean</option>
                     <option value="mexican">Mexican</option>
+                    <option value="pakistani">Pakistani</option>
                     <option value="indian">Indian</option>
                     <option value="japenese">Japenese</option>
+                    <option value="moroccan">Moroccan</option>
+                    <option value="korean">Korean</option>
+                    <option value="greek">Greek</option>
+                    <option value="thai">Thai</option>
+                    <option value="turkish">Turkish</option>
+                    <option value="Smoothie">Smoothie</option>
+                    <option value="lebanese">Lebanese</option>
+                    <option value="brazilian">Brazilian</option>
                 </select>
             </div>
             <div className="diifficulty">

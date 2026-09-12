@@ -11,7 +11,7 @@ const [isIcon,setIsIcon]=useState(false)
 <ChefHat size={30} className="hat"/>
 <h3>Recipe Finder</h3>
         </div>
-   <NavBar  isIcon={isIcon}/>
+   <NavBar  isIcon={isIcon} setIsIcon={setIsIcon}/>
 
 
         </div>
