@@ -1,11 +1,31 @@
+import { getSearchRecipe } from "../services/api";
+
 export default function RecipesHero({
   recipe,
   setRecipe,
   filterCusine,
   setFilterCusine,
   cookTime,setCookTime,
-  difficuilty, setDifficuilty
+  setResults,
+  difficuilty, setDifficuilty,
+  setErr
 }) {
+  const handleSubmit=async()=>{
+    if(recipe.trim()==="")return;
+
+
+    const data=await getSearchRecipe(recipe)
+    if(data.recipes.length===0){
+      setErr("No Recipe Found")
+
+    setResults(null)
+return
+
+    }
+    setResults(data.recipes)
+setErr("")
+    
+  }
   return (
     <div className="recipes-hero">
       <h1>Recipes</h1>
@@ -16,6 +36,7 @@ export default function RecipesHero({
         value={recipe}
         onChange={(e) => setRecipe(e.target.value)}
       />
+      <button onClick={handleSubmit}>search</button>
 
       <div className="recipes-select">
         <div className="filter">

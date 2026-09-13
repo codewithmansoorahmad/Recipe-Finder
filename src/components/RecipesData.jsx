@@ -1,9 +1,28 @@
 import { ArrowRight, Clock, Star } from "lucide-react"
+import { useEffect, useState } from "react";
+import { callApi } from "../services/api";
 
-export default function RecipesData({recipes,error}){
+export default function RecipesData({recipes,results,setRecipes,err,setErr}){
+    console.log(results)
+
+      useEffect(() => {
+        async function getRecipes() {
+          try {
+            const data = await callApi(30);
+            console.log(data.recipes)
+            setRecipes(data.recipes);
+          } catch (error) {
+            setErr(error.message);
+          }
+        }
+        getRecipes();
+      }, []);
+      let recipesData=results===null?recipes:results
+
     return <div className="recipes-data">
 {
-    recipes.length>0?recipes.map((item)=>{
+    
+    recipesData.length>0?recipesData.map((item)=>{
         return <div className="recipe" key={item.id}>
 <img src={item.image} alt={item.name} />
 <h3>{item.name}</h3>
@@ -14,7 +33,9 @@ export default function RecipesData({recipes,error}){
 <p>{item.cuisine}</p>
 <button>view recipe <span className="icon"><ArrowRight/></span></button>
         </div>
-    }):<h1>{error}</h1>
+    }):<h1>{err}</h1>
+    
+    
 }
     </div>
 }

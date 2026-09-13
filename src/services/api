@@ -5,7 +5,8 @@ export async function callApi(limit){
    try{
 
    let res=await fetch(base_url+"?limit="+limit) 
-    if(!res){
+    if(!res.ok){
+   throw new Error("something went wrong")
 
    }
    let data=await res.json()
@@ -13,8 +14,8 @@ export async function callApi(limit){
 
    return data
    }catch(error){
-      // throw error
-   throw new Error("something went wrong")
+      console.log(error)
+      throw error
 
    }
 
