@@ -16,7 +16,18 @@
     flex: 1;
     max-width: 550px;
 }
-
+.recipe-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 40px;
+    border-radius:10px ;
+      background-color: #d96b27;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 .hero-details h1 {
     margin: 0 0 20px;
     font-size: 48px;

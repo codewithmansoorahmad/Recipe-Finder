@@ -1,6 +1,8 @@
 import { ArrowRight, Clock, Star } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export default function PopularRecipes({recipes}){
+    const naigate=useNavigate()
     return <div className="popular-recipes">
         <div className="recipes-top">
             <h3>Popular Recipes</h3>
@@ -24,7 +26,7 @@ export default function PopularRecipes({recipes}){
     }):null
 }
     </div>
-    <button className="all-recipes-btn">View All Recipes</button>
+    <button className="all-recipes-btn" onClick={()=>naigate("/recipes`")}>View All Recipes</button>
     </div>
 
 }
