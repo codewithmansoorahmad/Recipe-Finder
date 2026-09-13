@@ -1,4 +1,4 @@
-export default function RecipesHero({recipe,setRecipe}){
+export default function RecipesHero({recipe,setRecipe,filterCusine,setFilterCusine}){
     return <div className="recipes-hero">
         <h1>Recipes</h1>
             <p>Find Something delicious to cook  </p>
@@ -9,32 +9,31 @@ export default function RecipesHero({recipe,setRecipe}){
             <div className="filter">
                 <label htmlFor="select-1">Causine</label>
 
-                <select id="select-1"  >
-                                    <option value="" hidden ></option>
-
-
-                    <option value="asian">asian</option>
-                    <option value="italian">Italian</option>
-                    <option value="american">American</option>
-                    <option value="mediterranean">Mediterranean</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="pakistani">Pakistani</option>
-                    <option value="indian">Indian</option>
-                    <option value="japenese">Japenese</option>
-                    <option value="moroccan">Moroccan</option>
-                    <option value="korean">Korean</option>
-                    <option value="greek">Greek</option>
-                    <option value="thai">Thai</option>
-                    <option value="turkish">Turkish</option>
+                <select id="select-1" value={filterCusine} onChange={(e)=>setFilterCusine(e.target.value)} >
+                <option value="All" >All</option>
+                    <option value="Asian">asian</option>
+                    <option value="Italian">Italian</option>
+                    <option value="American">American</option>
+                    <option value="Mditerranean">Mediterranean</option>
+                    <option value="Mexican">Mexican</option>
+                    <option value="Pakistani">Pakistani</option>
+                    <option value="Indian">Indian</option>
+                    <option value="Japenese">Japenese</option>
+                    <option value="Moroccan">Moroccan</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Greek">Greek</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Turkish">Turkish</option>
                     <option value="Smoothie">Smoothie</option>
-                    <option value="lebanese">Lebanese</option>
-                    <option value="brazilian">Brazilian</option>
+                    <option value="Lebanese">Lebanese</option>
+                    <option value="Brazilian">Brazilian</option>
                 </select>
             </div>
             <div className="diifficulty">
                 <label htmlFor="select-2">Difficuilty</label>
                 <select id="select-2"  >
-                                        <option value="" hidden ></option>
+                                                        <option value="All" >All</option>
+
 
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
@@ -45,7 +44,8 @@ export default function RecipesHero({recipe,setRecipe}){
                 <label htmlFor="select-3">Cooking Time</label>
 
             <select id="select-3">
-                    <option value="" hidden ></option>
+                                  <option value="All" >All</option>
+
 
 
                     <option value="15">under !5 minutes</option>

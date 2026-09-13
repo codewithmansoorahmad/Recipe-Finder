@@ -26,7 +26,7 @@ getRecipes()
                 
         
         <RecipesData recipes={recipes}/>
-       < SearchRecipe recipes={recipes} setRecipes={setRecipes} recipe={recipe}/>
+       < SearchRecipe filterCusine={filterCusine} recipes={recipes} setRecipes={setRecipes} recipe={recipe}/>
         
     </div>
 }
