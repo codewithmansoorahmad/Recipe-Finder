@@ -7,3 +7,9 @@ export async function callApi(limit){
    return data
 
 }
+export async function getSearchRecipe(recipe){
+   let apiRecipe=encodeURIComponent(recipe)
+    let res=await fetch(`${base_url}/search?q=${apiRecipe}`) 
+   let data=await res.json()
+   return data
+}

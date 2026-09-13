@@ -1,8 +1,8 @@
-export default function RecipesHero(){
+export default function RecipesHero({recipe,setRecipe}){
     return <div className="recipes-hero">
         <h1>Recipes</h1>
-            <p>Find Something delicious to cook </p>
-            <input type="text" placeholder="Search your recipe" />
+            <p>Find Something delicious to cook  </p>
+            <input type="text" placeholder="Search your recipe" value={recipe} onChange={(e)=>setRecipe(e.target.value)} />
 
 
            <div className="recipes-select">
