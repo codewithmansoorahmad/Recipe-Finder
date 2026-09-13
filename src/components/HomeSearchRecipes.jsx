@@ -14,13 +14,7 @@ setRecipes(data.recipes)
         }
         getRecipesWithSearch()
     },[recipe])
-    
-    // let filterData=recipes.filter((Item)=>Item.cuisine===filterCusine)
-    //  filterData.length>0?setFilterRecipes(filterData):"No "+filterCusine+" recipe available"
-
-//     useEffect(()=>{
-// },[filterCusine])
-// filterData.length>0?setRecipes(filterData):"NO "+filterCusine+" Recipe Availble "
+   
 
 
     return <div className="search-recipes">

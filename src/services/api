@@ -2,14 +2,36 @@ export const base_url="https://dummyjson.com/recipes";
 
 
 export async function callApi(limit){
+   try{
+
    let res=await fetch(base_url+"?limit="+limit) 
+    if(!res){
+
+   }
    let data=await res.json()
+  
+
    return data
+   }catch(error){
+      // throw error
+   throw new Error("something went wrong")
+
+   }
+
 
 }
 export async function getSearchRecipe(recipe){
+   try{
    let apiRecipe=encodeURIComponent(recipe)
     let res=await fetch(`${base_url}/search?q=${apiRecipe}`) 
+     if(!res){
+
+   }
    let data=await res.json()
    return data
+   }catch(error){
+   throw new Error("something went wrong")
+
+   }
+
 }
