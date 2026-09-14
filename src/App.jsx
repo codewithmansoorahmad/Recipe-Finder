@@ -4,7 +4,7 @@ import { Routes,Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Recipes from "./pages/Recipes"
 import Favorites from "./pages/Favorites"
-import SinglePageRecipe from "./components/SinglePageRecipe"
+import SinglePageRecipe from "./pages/SinglePageRecipe"
 function App() {
 
   return (

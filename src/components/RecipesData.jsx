@@ -25,7 +25,7 @@ export default function RecipesData({recipes,results,setRecipes,err,setErr}){
 
     
     recipesData.length>0?recipesData.map((item)=>{
-        return <div className="recipe" key={item.id}>
+        return <div className="recipe" key={item.id} onClick={()=>navigate("/recipes/"+item.id)}>
 <img src={item.image} alt={item.name} />
 <h3>{item.name}</h3>
 <div className="rat-time">

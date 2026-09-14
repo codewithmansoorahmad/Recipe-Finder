@@ -55,6 +55,7 @@ const [searcErr,setSearchErr]=useState("")
         cookTime={cookTime}
         difficuilty={difficuilty}
       />
+    
     </div>
   );
 }
