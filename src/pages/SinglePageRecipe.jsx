@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getRecipeById } from "../services/api";
 import { useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft, Heart } from "lucide-react";
+import { ArrowLeft, Clock, Heart } from "lucide-react";
 import "../css/SinglePageRecipe.css";
 
 export default function SinglePageRecipe() {
@@ -32,19 +32,21 @@ export default function SinglePageRecipe() {
             <button className="favorite"><Heart className="icon"/></button>
           <img src={recipe.image} alt="" />
           <h1>{recipe.name}</h1>
-          <p>{recipe.cuisine}</p>
-          <p>{recipe.cookTimeMinuts}</p>
-          <p>{recipe.caloriesPerServing}</p>
-          <p>{recipe.difficulty}</p>
+          <p>Cuisine: {recipe.cuisine}</p>
+           <p>{recipe.cookTimeMinutes? recipe.cookTimeMinutes+"min" :"N/A"} <span className="icon"><Clock/></span></p>
+          <p>Calories: {recipe.caloriesPerServing}</p>
+          <p>DIfficulty Level: {recipe.difficulty}</p>
           <div className="bith-side">
 
           <div className="ingredients">
             <h1>Ingredients</h1>
-            <ul>
+
+            <ol>
+
               {recipe.ingredients?.map((item, index) => {
                 return <li key={index}>{item}</li>;
               })}
-            </ul>
+            </ol>
           
           </div>
           <div className="instructions">

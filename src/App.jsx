@@ -4,7 +4,9 @@ import { Routes,Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Recipes from "./pages/Recipes"
 import Favorites from "./pages/Favorites"
-import SinglePageRecipe from "./pages/SinglePageRecipe"
+import { lazy, Suspense } from "react"
+// import SinglePageRecipe from "./pages/SinglePageRecipe"
+const SinglePageRecipe=lazy(()=>import("./pages/SinglePageRecipe"))
 function App() {
 
   return (
@@ -18,7 +20,11 @@ function App() {
       <Route path="/favorites" element={<Favorites/>}/>
 
       </Route>
-      <Route path="/recipes/:id" element={<SinglePageRecipe/>}/>
+      <Route path="/recipes/:id" element={
+        <Suspense fallback={<h1>loading...</h1>}>
+          <SinglePageRecipe/>
+        </Suspense>
+      }/>
 
      </Routes>
 
