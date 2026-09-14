@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { getSearchRecipe } from "../services/api";
 
 export default function RecipesHero({
@@ -8,35 +9,52 @@ export default function RecipesHero({
   cookTime,setCookTime,
   setResults,
   difficuilty, setDifficuilty,
-  setErr
+  setErr,
+  searcErr,
+  setSearchErr
 }) {
+  useEffect(()=>{
+    if(recipe.trim()===""){
+      setSearchErr("")
+    }
+  },[recipe])
   const handleSubmit=async()=>{
     if(recipe.trim()==="")return;
 
 
     const data=await getSearchRecipe(recipe)
     if(data.recipes.length===0){
-      setErr("No Recipe Found")
-
+      setSearchErr("No Recipe Found with this "+recipe+" name")
     setResults(null)
 return
-
     }
     setResults(data.recipes)
 setErr("")
+setSearchErr("")
     
   }
   return (
     <div className="recipes-hero">
       <h1>Recipes</h1>
       <p>Find Something delicious to cook </p>
+      <div className="input">
       <input
         type="text"
         placeholder="Search your recipe"
         value={recipe}
-        onChange={(e) => setRecipe(e.target.value)}
+        onChange={(e) => {setRecipe(e.target.value)}}
+        onKeyDown={(e)=>{
+          if(recipe.trim()!==""){
+            if(e.key==="Enter"){
+              handleSubmit()
+            }
+          }
+
+        }}
       />
-      <button onClick={handleSubmit}>search</button>
+      <button onClick={handleSubmit} className="search-btn">search</button>
+      </div>
+        {searcErr?<p className="search-err" id="err">{searcErr}</p>:null}
 
       <div className="recipes-select">
         <div className="filter">

@@ -2,6 +2,7 @@ import { ChefHat, Menu, X } from "lucide-react";
 import NavBar from "../components/NavBar";
 import "../css/Header.css"
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 export default function Header(){
 const [isIcon,setIsIcon]=useState(false)
 
@@ -19,6 +20,8 @@ const [isIcon,setIsIcon]=useState(false)
         <div className="menu">
            <button className="menu-icon" onClick={()=>setIsIcon(!isIcon)}>{!isIcon? <Menu />:<X/>}</button>
         </div>
+<Outlet/>
+
     </header>
 
 }

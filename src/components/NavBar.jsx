@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function NavBar({isIcon,setIsIcon}){
     return <div className="nabar">

@@ -16,7 +16,7 @@ export default function Recipes() {
   const [cookTime, setCookTime] = useState("");
   const [recipe, setRecipe] = useState("");
   const [err, setErr] = useState("");
-
+const [searcErr,setSearchErr]=useState("")
   return (
     <div className="recipes">
       <RecipesHero
@@ -32,7 +32,8 @@ export default function Recipes() {
         setResults={setResults}
         err={err}
         setErr={setErr}
-        
+        searcErr={searcErr}
+        setSearchErr={setSearchErr}
       />
 
       <RecipesData
@@ -41,6 +42,7 @@ export default function Recipes() {
         setRecipes={setRecipes}
           err={err}
         setErr={setErr}
+        recipe={recipe}
       />
       <SearchRecipe
         filterCusine={filterCusine}
