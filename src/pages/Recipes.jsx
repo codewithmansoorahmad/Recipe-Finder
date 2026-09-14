@@ -5,17 +5,15 @@ import RecipesData from "../components/RecipesData";
 import "../css/Recipes.css";
 import SearchRecipe from "../components/HomeSearchRecipes";
 
-export default function Recipes() {
-  const [recipes, setRecipes] = useState([]);
-  const [results, setResults] = useState(null);
+export default function Recipes({recipes,setRecipes,err,setErr,results,setResults,recipe,setRecipe}) {
+  // const [recipes, setRecipes] = useState([]);
   const [filterRecipes, setFilterRecipes] = useState([]);
   const [timeRecipes, setTimeRecipes] = useState([]);
   const [difficuiltRecipes, SetDifficultRecipes] = useState([]);
   const [filterCusine, setFilterCusine] = useState("");
   const [difficuilty, setDifficuilty] = useState("");
   const [cookTime, setCookTime] = useState("");
-  const [recipe, setRecipe] = useState("");
-  const [err, setErr] = useState("");
+  // const [err, setErr] = useState("");
 const [searcErr,setSearchErr]=useState("")
   return (
     <div className="recipes">

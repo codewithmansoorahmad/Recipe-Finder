@@ -50,8 +50,9 @@ export default function SinglePageRecipe() {
           
           </div>
           <div className="instructions">
-              <ol>
               <h1>Instructions</h1>
+
+              <ol>
 
               {recipe.instructions?.map((item, index) => {
                 return <li key={index}>{item}</li>;

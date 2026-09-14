@@ -5,17 +5,19 @@ import { useNavigate } from "react-router-dom";
 
 export default function RecipesData({recipes,results,setRecipes,err,setErr}){
 
-      useEffect(() => {
-        async function getRecipes() {
-          try {
-            const data = await callApi(30);
-            setRecipes(data.recipes);
-          } catch (error) {
-            setErr(error.message);
-          }
-        }
-        getRecipes();
-      }, []);
+      // useEffect(() => {
+      //   async function getRecipes() {
+      //     try {
+      //       const data = await callApi(30);
+      //       setRecipes(data.recipes);
+      //     } catch (error) {
+      //       setErr(error.message);
+      //     }
+      //   }
+      //   getRecipes();
+      // }, []);
+
+
       let recipesData=results===null?recipes:results
       const navigate=useNavigate()
 

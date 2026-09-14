@@ -16,6 +16,7 @@ export default function RecipesHero({
   useEffect(()=>{
     if(recipe.trim()===""){
       setSearchErr("")
+      setResults(null)
     }
   },[recipe])
   const handleSubmit=async()=>{

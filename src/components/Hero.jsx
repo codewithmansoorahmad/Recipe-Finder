@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react"
 import image from "../assets/image.avif"
 import { useNavigate } from "react-router-dom"
-export default function Hero({}){
+export default function Hero(){
     const navigate=useNavigate()
     return <div className="hero">
 <div className="hero-details">
