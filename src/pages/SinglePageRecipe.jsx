@@ -3,12 +3,14 @@ import { getRecipeById } from "../services/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Clock, Heart } from "lucide-react";
 import "../css/SinglePageRecipe.css";
+import ScrollTop from "../components/ScrollTop";
 
 export default function SinglePageRecipe() {
   const [recipe, setRecipe] = useState({});
   const [error, setError] = useState("");
   const navigate = useNavigate();
   let { id } = useParams();
+  <ScrollTop/>
   useEffect(() => {
     async function getRecipe() {
       try {
@@ -24,7 +26,7 @@ export default function SinglePageRecipe() {
   }, []);
   return (
     <div className="single-page">
-      <button onClick={() => navigate(-1)}>
+      <button onClick={() => {navigate(-1)}}>
         <ArrowLeft />
       </button>
       {!error ? (
@@ -33,7 +35,7 @@ export default function SinglePageRecipe() {
           <img src={recipe.image} alt="" />
           <h1>{recipe.name}</h1>
           <p>Cuisine: {recipe.cuisine}</p>
-           <p>{recipe.cookTimeMinutes? recipe.cookTimeMinutes+"min" :"N/A"} <span className="icon"><Clock/></span></p>
+           <p>CookTime {recipe.cookTimeMinutes?  recipe.cookTimeMinutes+"min" :"N/A"} <span className="icon"><Clock/></span></p>
           <p>Calories: {recipe.caloriesPerServing}</p>
           <p>DIfficulty Level: {recipe.difficulty}</p>
           <div className="bith-side">
