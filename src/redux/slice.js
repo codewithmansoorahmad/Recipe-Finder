@@ -1,26 +1,15 @@
-// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import { callApi } from "../services/api";
+import { createSlice } from "@reduxjs/toolkit";
 
-// const getRecipes=createAsyncThunk("recipes",async()=>{
-//     const data=await callApi(30)
-//     return data.recipes
-
-// })
-
-// const recipes=createSlice({
-//     name:"recipesData",
-//     initialState:{
-//         recipes:[],
-//         error:"",
-
-
-//     },
-
-//     extraReducers:(builder)=>{
-//         builder.addCase(getRecipes.fulfilled,(state)=>{
-//             state.recipes=getRecipes()
-//         })
-//     }
-// })
-
-// // export default recipes.reducer
+const favoriteRecipes=createSlice({
+    name:"favorites",
+    initialState:{
+        favorites:JSON.parse(localStorage.getItem("favorites"))||[]
+        
+    },
+    reducers:{
+        addFavorites:(state,action)=>{
+            state.favorites.push(action.payload)
+            localStorage.setItem("favorites",JSON.stringify(state.favorites))
+        }
+    }
+})
