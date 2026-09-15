@@ -1,15 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const favoriteRecipes=createSlice({
+const favoriteRecipesSlice=createSlice({
     name:"favorites",
     initialState:{
-        favorites:JSON.parse(localStorage.getItem("favorites"))||[]
+        favoritesRecipes:JSON.parse(localStorage.getItem("favorites"))||[]
         
     },
     reducers:{
         addFavorites:(state,action)=>{
-            state.favorites.push(action.payload)
-            localStorage.setItem("favorites",JSON.stringify(state.favorites))
+            state.favoritesRecipes.push(action.payload)
+            localStorage.setItem("favorites",JSON.stringify(state.favoritesRecipes))
         }
     }
 })
+export const {addFavorites}=favoriteRecipesSlice.actions
+export default favoriteRecipesSlice.reducer

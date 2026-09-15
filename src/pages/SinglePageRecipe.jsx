@@ -4,8 +4,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Clock, Heart } from "lucide-react";
 import "../css/SinglePageRecipe.css";
 import ScrollTop from "../components/ScrollTop";
+import { addFavorites } from "../redux/slice";
+import { useDispatch } from "react-redux";
 
 export default function SinglePageRecipe() {
+    const dispatch=useDispatch()
+    const [isFavorite,setIsFavorite]=useState(false)
+
   const [recipe, setRecipe] = useState({});
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -31,7 +36,7 @@ export default function SinglePageRecipe() {
       </button>
       {!error ? (
         <div className="recipe-page">
-            <button className="favorite"><Heart className="icon"/></button>
+            <button className="favorite"><Heart className="icon" onClick={()=>{dispatch(addFavorites(recipe))}}/></button>
           <img src={recipe.image} alt="" />
           <h1>{recipe.name}</h1>
           <p>Cuisine: {recipe.cuisine}</p>
