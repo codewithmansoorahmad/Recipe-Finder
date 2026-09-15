@@ -4,12 +4,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Clock, Heart } from "lucide-react";
 import "../css/SinglePageRecipe.css";
 import ScrollTop from "../components/ScrollTop";
-import { addFavorites } from "../redux/slice";
-import { useDispatch } from "react-redux";
+import { addFavorites, removeFavorite } from "../redux/slice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function SinglePageRecipe() {
   const dispatch = useDispatch();
-  const [isFavorite, setIsFavorite] = useState(false);
+  // const [isFavorite, setIsFavorite] = useState(false);
+  const isFavorite=useSelector((state)=>{
+    return state.favorites.favoritesRecipes.some((item)=>item.id===recipe.id)
+  })
+
 
   const [recipe, setRecipe] = useState({});
   const [error, setError] = useState("");
@@ -41,8 +45,8 @@ export default function SinglePageRecipe() {
       {!error ? (
         <div className="recipe-page">
           <button className="favorite"    onClick={() => {
-                dispatch(addFavorites(recipe));
-                setIsFavorite(!isFavorite)
+            // setIsFavorite(!isFavorite)
+           isFavorite?dispatch(removeFavorite(recipe.id)) :dispatch(addFavorites(recipe)) ;
               }}
 
                >

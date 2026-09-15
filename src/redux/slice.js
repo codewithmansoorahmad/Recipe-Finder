@@ -10,8 +10,14 @@ const favoriteRecipesSlice=createSlice({
         addFavorites:(state,action)=>{
             state.favoritesRecipes.push(action.payload)
             localStorage.setItem("favorites",JSON.stringify(state.favoritesRecipes))
+        },
+        removeFavorite:(state,action)=>{
+            state.favoritesRecipes= state.favoritesRecipes.filter((item)=>item.id!==action.payload  )
+            localStorage.setItem("favorites",JSON.stringify(state.favoritesRecipes))
+
+
         }
     }
 })
-export const {addFavorites}=favoriteRecipesSlice.actions
+export const {addFavorites,removeFavorite}=favoriteRecipesSlice.actions
 export default favoriteRecipesSlice.reducer
