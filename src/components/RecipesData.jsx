@@ -1,22 +1,12 @@
-import { ArrowRight, Clock, Star } from "lucide-react"
+import { ArrowRight, Clock, Heart, Star } from "lucide-react"
 import { useEffect, useState } from "react";
 import { callApi } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 export default function RecipesData({recipes,results,setRecipes,err,setErr}){
 
-      // useEffect(() => {
-      //   async function getRecipes() {
-      //     try {
-      //       const data = await callApi(30);
-      //       setRecipes(data.recipes);
-      //     } catch (error) {
-      //       setErr(error.message);
-      //     }
-      //   }
-      //   getRecipes();
-      // }, []);
-
+    const favorites=useSelector((state)=>state.favorites.favoritesRecipes)
+  const isFavorite=favorites.some((item)=>item.id==recipe.id)
 
       let recipesData=results===null?recipes:results
       const navigate=useNavigate()
@@ -28,6 +18,7 @@ export default function RecipesData({recipes,results,setRecipes,err,setErr}){
     
     recipesData.length>0?recipesData.map((item)=>{
         return <div className="recipe" key={item.id} onClick={()=>navigate("/recipes/"+item.id)}>
+            <button><Heart></Heart></button>
 <img src={item.image} alt={item.name} />
 <h3>{item.name}</h3>
 <div className="rat-time">

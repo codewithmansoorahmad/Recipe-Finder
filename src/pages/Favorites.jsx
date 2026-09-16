@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux"
+ import FavoritesData from "../components/FavoritesData"
+ import "../css/Favorite.css"
 
 export default function Favorites(){
-    let favorites=useSelector((state)=>state.favorites.favoritesRecipes)
-    console.log(favorites)
+    
     return <div className="favorites">
-        <h1>favorites</h1>
+        <FavoritesData/>
     </div>
 }

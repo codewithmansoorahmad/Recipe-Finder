@@ -14,9 +14,10 @@ export default function SinglePageRecipe() {
 
   const {recipes,results}=useContext(ContexData)
  const favorites=useSelector((state)=>state.favorites.favoritesRecipes)
+  const isFavorite=favorites.some((item)=>item.id==recipe.id)
+
  let allData=results!==null?[...recipes,...results]:recipes
  let recipe=allData.find((item)=>Number(item.id)===Number(id))
-  const isFavorite=favorites.some((item)=>item.id==recipe.id)
   const navigate = useNavigate();
   <ScrollTop />;
  

@@ -2,7 +2,6 @@ import { ArrowRight, Clock, Star } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 
 export default function PopularRecipes({popularRecipes,setRecipe,setResults}){
-console.log(popularRecipes)
     const navigate=useNavigate()
 
     return <div className="popular-recipes">
@@ -25,7 +24,7 @@ console.log(popularRecipes)
 <p>{item.cuisine}</p>
 <button onClick={()=>navigate("/recipes/"+item.id)}>view recipe <span className="icon"><ArrowRight/></span></button>
         </div>
-    }):null
+    }):<h1>Something wrnt wrong</h1>
 }
     </div>
     <button className="all-recipes-btn" onClick={()=>{
