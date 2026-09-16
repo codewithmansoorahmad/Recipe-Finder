@@ -2,14 +2,14 @@ import { ArrowRight, Clock, Heart, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { addFavorites, removeFavorite } from "../redux/slice";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 
-export default function RecipesData({ recipes, results, err }) {
+export default function RecipesData({ recipes, results, err,filterCuisine }) {
   const favorites = useSelector((state) => state.favorites.favoritesRecipes);
   const dispatch = useDispatch();
-
+let filterData=
   let recipesData = results === null ? recipes : results;
   const navigate = useNavigate();
+
 
   return (
     <div className="recipes-data">

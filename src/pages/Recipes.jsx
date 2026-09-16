@@ -6,14 +6,10 @@ import "../css/Recipes.css";
 import SearchRecipe from "../components/HomeSearchRecipes";
 
 export default function Recipes({recipes,setRecipes,err,setErr,results,setResults,recipe,setRecipe}) {
-  // const [recipes, setRecipes] = useState([]);
-  const [filterRecipes, setFilterRecipes] = useState([]);
-  const [timeRecipes, setTimeRecipes] = useState([]);
-  const [difficuiltRecipes, SetDifficultRecipes] = useState([]);
   const [filterCusine, setFilterCusine] = useState("");
   const [difficuilty, setDifficuilty] = useState("");
   const [cookTime, setCookTime] = useState("");
-  // const [err, setErr] = useState("");
+
 const [searcErr,setSearchErr]=useState("")
   return (
     <div className="recipes">
@@ -31,6 +27,8 @@ const [searcErr,setSearchErr]=useState("")
         err={err}
         setErr={setErr}
         searcErr={searcErr}
+        recipes={recipes}
+        results={results}
         setSearchErr={setSearchErr}
       />
 
@@ -41,15 +39,14 @@ const [searcErr,setSearchErr]=useState("")
           err={err}
         setErr={setErr}
         recipe={recipe}
+        setResults={setResults}
       />
       <SearchRecipe
         filterCusine={filterCusine}
         recipes={recipes}
         setRecipes={setRecipes}
         recipe={recipe}
-        setFilterRecipes={setFilterRecipes}
-        SetDifficultRecipes={SetDifficultRecipes}
-        setTimeRecipes={setTimeRecipes}
+   
         cookTime={cookTime}
         difficuilty={difficuilty}
       />
