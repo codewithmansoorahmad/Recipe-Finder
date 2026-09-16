@@ -1,9 +1,7 @@
-import { lazy, Suspense, useEffect, useState } from "react"
+import { lazy, Suspense } from "react"
 import Hero from "../components/Hero"
 
 import "../css/Home.css"
-import { callApi } from "../services/api"
-import SearchRecipe from "../components/HomeSearchRecipes"
 const PopularRecipes=lazy(()=>import("../components/PopularRecipes"))
 export default function Home({setRecipe,setResults,popularRecipes}){
    
