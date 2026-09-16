@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import RecipesHero from "../components/RecipesHero";
-import { callApi } from "../services/api";
 import RecipesData from "../components/RecipesData";
 import "../css/Recipes.css";
-import SearchRecipe from "../components/HomeSearchRecipes";
 
 export default function Recipes({recipes,setRecipes,err,setErr,results,setResults,recipe,setRecipe}) {
   const [filterCusine, setFilterCusine] = useState("");
@@ -40,15 +38,6 @@ const [searcErr,setSearchErr]=useState("")
         setErr={setErr}
         recipe={recipe}
         setResults={setResults}
-      />
-      <SearchRecipe
-        filterCusine={filterCusine}
-        recipes={recipes}
-        setRecipes={setRecipes}
-        recipe={recipe}
-   
-        cookTime={cookTime}
-        difficuilty={difficuilty}
       />
     
     </div>
