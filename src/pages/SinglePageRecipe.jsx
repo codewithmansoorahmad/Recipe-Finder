@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getRecipeById } from "../services/api";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Clock, Heart } from "lucide-react";
@@ -6,33 +6,20 @@ import "../css/SinglePageRecipe.css";
 import ScrollTop from "../components/ScrollTop";
 import { addFavorites, removeFavorite } from "../redux/slice";
 import { useDispatch, useSelector } from "react-redux";
+import { ContexData } from "../ContextData/context";
 
 export default function SinglePageRecipe() {
   const dispatch = useDispatch();
-  // const [isFavorite, setIsFavorite] = useState(false);
-  const isFavorite=useSelector((state)=>{
-    return state.favorites.favoritesRecipes.some((item)=>item.id===recipe.id)
-  })
-
-
-  const [recipe, setRecipe] = useState({});
-  const [error, setError] = useState("");
-  const navigate = useNavigate();
   let { id } = useParams();
+
+  const {recipes,results}=useContext(ContexData)
+ const favorites=useSelector((state)=>state.favorites.favoritesRecipes)
+ let allData=results!==null?[...recipes,...results]:recipes
+ let recipe=allData.find((item)=>Number(item.id)===Number(id))
+  const isFavorite=favorites.some((item)=>item.id==recipe.id)
+  const navigate = useNavigate();
   <ScrollTop />;
-  useEffect(() => {
-    async function getRecipe() {
-      try {
-        let data = await getRecipeById(id);
-        setRecipe(data);
-        console.log(data);
-        setError("");
-      } catch (err) {
-        setError(err.message);
-      }
-    }
-    getRecipe();
-  }, []);
+ 
   return (
     <div className="single-page">
       <button
@@ -42,10 +29,9 @@ export default function SinglePageRecipe() {
       >
         <ArrowLeft />
       </button>
-      {!error ? (
+      
         <div className="recipe-page">
           <button className="favorite"    onClick={() => {
-            // setIsFavorite(!isFavorite)
            isFavorite?dispatch(removeFavorite(recipe.id)) :dispatch(addFavorites(recipe)) ;
               }}
 
@@ -90,9 +76,7 @@ export default function SinglePageRecipe() {
             </div>
           </div>
         </div>
-      ) : (
-        <h1>{error}</h1>
-      )}
+      
     </div>
   );
 }

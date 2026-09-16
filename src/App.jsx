@@ -4,10 +4,9 @@ import { Routes,Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Recipes from "./pages/Recipes"
 import Favorites from "./pages/Favorites"
-import { lazy, Suspense, useEffect, useState } from "react"
+import { createContext, lazy, Suspense, useEffect, useState } from "react"
 import { callApi } from "./services/api"
-import ScrollTop from "./components/ScrollTop"
-// import SinglePageRecipe from "./pages/SinglePageRecipe"
+import { ContexData } from "./ContextData/context"
 const SinglePageRecipe=lazy(()=>import("./pages/SinglePageRecipe"))
 
 function App() {
@@ -16,14 +15,7 @@ function App() {
   const [results, setResults] = useState(null);
   const [recipe, setRecipe] = useState("");
    const [popularRecipes,setPoPularRecipes]=useState([])
-  //     useEffect(()=>{
-  //        async function getRecipes(){
-  // let data=await callApi(6)
-  // setPoPularRecipes(data.recipes)
-  //         }
-  //         getRecipes()
-  
-  //     },[])
+
       
 
      useEffect(() => {
@@ -32,9 +24,7 @@ function App() {
               const data = await callApi(30);
               setRecipes(data.recipes);
               setPoPularRecipes(data.recipes.slice(0,6))
-              console.log(popularRecipes)
 
-              console.log(popularRecipes)
             } catch (error) {
               setErr(error.message);
             }
@@ -47,6 +37,8 @@ function App() {
   return (
     <>
     {/* <ScrollTop/> */}
+      <ContexData.Provider value={{recipes,results}}>
+
      <Routes>
 
       <Route element={<Header/>}>
@@ -60,9 +52,12 @@ function App() {
         <Suspense fallback={<h1>loading...</h1>}>
           <SinglePageRecipe/>
         </Suspense>
+
       }/>
 
      </Routes>
+      </ContexData.Provider>
+
 
           
               
