@@ -6,8 +6,6 @@ export default function RecipesHero({
   setRecipe,
   filterCusine,
   setFilterCusine,
-  cookTime,
-  setCookTime,
   setResults,
   difficuilty,
   setDifficuilty,
@@ -115,21 +113,7 @@ export default function RecipesHero({
             <option value="Medium">Medium</option>
           </select>
         </div>
-        <div className="time">
-          <label htmlFor="select-3">Cooking Time</label>
-
-          <select
-            id="select-3"
-            value={cookTime}
-            onChange={(e) => setCookTime(e.target.value)}
-          >
-            <option value="All">All</option>
-
-            <option value="15">under !5 minutes</option>
-            <option value="30">under 30 minutes</option>
-            <option value="60">under 60 minutes</option>
-          </select>
-        </div>
+        
       </div>
     </div>
   );

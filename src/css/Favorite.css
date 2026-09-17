@@ -108,14 +108,14 @@
   padding: 10px 16px;
   border: none;
   border-radius: 8px;
-  background: #222;
+  background: #ff7a00;
   color: white;
   font-size: 15px;
   cursor: pointer;
 }
 
 .favorite-recipe > button:last-child:hover {
-  background: #444;
+  background: #e66d00;
 }
 
 @media (max-width: 700px) {

@@ -37,8 +37,7 @@
 }
 
 .filter,
-.diifficulty,
-.time {
+.diifficulty{
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -46,16 +45,14 @@
 }
 
 .filter label,
-.diifficulty label,
-.time label {
+.diifficulty label {
     font-size: 14px;
     font-weight: 600;
     color: #444;
 }
 
 .filter select,
-.diifficulty select,
-.time select {
+.diifficulty select {
     width: 180px;
     height: 42px;
     padding: 0 12px;
@@ -85,6 +82,7 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
 
 .input input {
     flex: 1;
@@ -188,17 +186,16 @@
     }
 
     .filter,
-    .difficulty,
-    .time {
+    .difficulty{
         width: 100%;
     }
 
     .filter select,
-    .diifficulty select,
-    .time select {
+    .diifficulty select {
                width: 100%;
 
     }
+ 
 
     .recipes-data {
         grid-template-columns: 1fr;

@@ -15,12 +15,21 @@ export default function RecipesData({ recipes, results, err,filterCusine,difficu
   let filterDifficuilty=filterRecipes.filter((item)=>{
     return difficuilty==="All" ||item.difficulty===difficuilty
   })
+
   console.log(filterDifficuilty)
   const navigate = useNavigate();
 
   return (
-    <div className="recipes-data">
-      {filterDifficuilty.length > 0 ? (
+  <div className="all-recipes-data">
+
+      {
+        err?
+        <h1  style={{textAlign:"center",fontSize:"18px",fontWeight:"500",}} className="err-recipes">Something went wrong while loading recipes.Try again later.</h1>
+:
+      filterDifficuilty.length > 0 ?
+       (
+        <div className="recipes-data">
+{
         filterDifficuilty.map((item) => {
           const isFavorite = favorites.some((recipe) => recipe.id === item.id);
 
@@ -68,11 +77,18 @@ export default function RecipesData({ recipes, results, err,filterCusine,difficu
                 </span>
               </button>
             </div>
+            
           );
+          
         })
-      ) : (
-        <h1>{err}</h1>
-      )}
+      }
     </div>
+
+      )
+       : (
+     <h1 style={{textAlign:"center",fontSize:"18px",fontWeight:"500",marginBottom:"100px"}} className="error-container" >NO recipe found with filter</h1>
+      )}
+  </div>
+
   );
 }
