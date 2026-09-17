@@ -39,6 +39,7 @@ const [searcErr,setSearchErr]=useState("")
         recipe={recipe}
         setResults={setResults}
         filterCusine={filterCusine}
+        difficuilty={difficuilty}
       />
     
     </div>

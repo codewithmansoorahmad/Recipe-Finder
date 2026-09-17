@@ -111,9 +111,8 @@ export default function RecipesHero({
             onChange={(e) => setDifficuilty(e.target.value)}
           >
             <option value="All">All</option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
           </select>
         </div>
         <div className="time">
