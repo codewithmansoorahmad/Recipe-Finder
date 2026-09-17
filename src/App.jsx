@@ -8,6 +8,7 @@ import {  lazy, Suspense, useEffect, useState } from "react"
 import { callApi } from "./services/api"
 import { ContexData } from "./ContextData/context"
 import PageNotFound from "./pages/404"
+import LoadingPage from "./components/LoadingPage"
 const SinglePageRecipe=lazy(()=>import("./pages/SinglePageRecipe"))
 
 function App() {
@@ -50,7 +51,7 @@ function App() {
 
       </Route>
       <Route path="/recipes/:id" element={
-        <Suspense fallback={<h1>loading...</h1>}>
+        <Suspense fallback={<LoadingPage/>}>
           <SinglePageRecipe/>
         </Suspense>
 

@@ -26,6 +26,7 @@ window.scrollTo(0,0)
     <div className="single-page">
       <button
         onClick={() => {
+          window.scrollTo(0,0)
           navigate(-1);
         }}
       >
