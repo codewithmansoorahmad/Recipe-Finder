@@ -8,10 +8,10 @@ export default function Home({setRecipe,setResults,popularRecipes}){
     return <div className="home">
         <Hero  />
 
-        <Suspense fallback={<h1>loading...</h1>}>
+      { popularRecipes.length>0 && <Suspense fallback={<h1>loading...</h1>}>
         <PopularRecipes popularRecipes={popularRecipes}  setRecipe={setRecipe} setResults={setResults}/>
 
-        </Suspense>
+        </Suspense>}
 
     </div>
 }

@@ -43,7 +43,7 @@ function App() {
 
       <Route element={<Header/>}>
 
-      <Route path="/" element={<Home setRecipe={setRecipe} setResults={setResults} setPopularRecipes={setPoPularRecipes} popularRecipes={popularRecipes} />}/>
+      <Route path="/" element={<Home err={err} setRecipe={setRecipe} setResults={setResults} setPopularRecipes={setPoPularRecipes} popularRecipes={popularRecipes} />}/>
       <Route path="/recipes" element={<Recipes results={results} setResults={setResults} err={err} setErr={setErr} recipes={recipes} setRecipes={setRecipes} recipe={recipe} setRecipe={setRecipe}/>}/>
       <Route path="/favorites" element={<Favorites/>}/>
 

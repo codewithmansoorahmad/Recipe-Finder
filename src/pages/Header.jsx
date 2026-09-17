@@ -14,13 +14,15 @@ const [isIcon,setIsIcon]=useState(false)
         </div>
    <NavBar  isIcon={isIcon} setIsIcon={setIsIcon}/>
 
-
-        </div>
-
         <div className="menu">
            <button className="menu-icon" onClick={()=>setIsIcon(!isIcon)}>{!isIcon? <Menu />:<X/>}</button>
         </div>
-<Outlet/>
+
+        </div>
+
+<div className={isIcon ? "page-locked" : ""}>
+  <Outlet />
+</div>
 
     </header>
 
