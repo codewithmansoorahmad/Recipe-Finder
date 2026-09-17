@@ -1,28 +1,26 @@
-import { useContext, useEffect, useState } from "react";
-import { getRecipeById } from "../services/api";
+import { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ArrowLeft, Clock, Heart } from "lucide-react";
 import "../css/SinglePageRecipe.css";
-import ScrollTop from "../components/ScrollTop";
 import { addFavorites, removeFavorite } from "../redux/slice";
 import { useDispatch, useSelector } from "react-redux";
 import { ContexData } from "../ContextData/context";
 
 export default function SinglePageRecipe() {
+  useEffect(()=>{
+window.scrollTo(0,0)
+  },[])
   const dispatch = useDispatch();
   let { id } = useParams();
 
   const {recipes,results}=useContext(ContexData)
  const favorites=useSelector((state)=>state.favorites.favoritesRecipes)
  let allData=results!==null?[...recipes,...results]:recipes
- console.log(allData)
  let recipe=allData.find((item)=>Number(item.id)===Number(id))
 
 
-console.log(recipe.id)
   const isFavorite=favorites.some((item)=>item.id==recipe.id)
   const navigate = useNavigate();
-  <ScrollTop />;
  
   return (
     <div className="single-page">
