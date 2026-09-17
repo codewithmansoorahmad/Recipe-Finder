@@ -1,7 +1,8 @@
-import {  useState } from "react";
+import {  lazy, useState } from "react";
 import RecipesHero from "../components/RecipesHero";
-import RecipesData from "../components/RecipesData";
+// import RecipesData from "../components/RecipesData";
 import "../css/Recipes.css";
+const RecipesData=lazy(()=>import("../components/RecipesData"))
 
 export default function Recipes({recipes,setRecipes,err,setErr,results,setResults,recipe,setRecipe}) {
   const [filterCusine, setFilterCusine] = useState("All");
