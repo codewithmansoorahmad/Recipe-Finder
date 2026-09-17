@@ -12,19 +12,22 @@ window.scrollTo(0,0)
   },[])
   const dispatch = useDispatch();
   let { id } = useParams();
+  const navigate = useNavigate();
 
   const {recipes,results}=useContext(ContexData)
  const favorites=useSelector((state)=>state.favorites.favoritesRecipes)
  let allData=results!==null?[...recipes,...results]:recipes
  let recipe=allData.find((item)=>Number(item.id)===Number(id))
-
+if(!recipe){
+  return <h1>Recipe Not found</h1>
+}
 
   const isFavorite=favorites.some((item)=>item.id==recipe.id)
-  const navigate = useNavigate();
  
   return (
     <div className="single-page">
       <button
+      type="button"
         onClick={() => {
           window.scrollTo(0,0)
           navigate(-1);

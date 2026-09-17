@@ -43,8 +43,8 @@ export default function FavoritesData() {
                   </p>
                 </div>
                 <p>{item.cuisine}</p>
-                <button onClick={() => navigate("/recipes/" + item.id)}>
-                  view recipe{" "}
+                <button >
+                  view recipe
                   <span className="icon">
                     <ArrowRight />
                   </span>

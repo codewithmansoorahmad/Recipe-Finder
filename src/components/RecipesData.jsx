@@ -70,8 +70,8 @@ export default function RecipesData({ recipes, results, err,filterCusine,difficu
               </div>
               <p>difficulty: {item.difficulty}</p>
               <p>{item.cuisine}</p>
-              <button onClick={() => navigate("/recipes/" + item.id)}>
-                view recipe{" "}
+              <button>
+                view recipe
                 <span className="icon">
                   <ArrowRight />
                 </span>

@@ -22,7 +22,7 @@ export default function PopularRecipes({popularRecipes,setRecipe,setResults}){
     <p>{item.cookTimeMinutes} min <span className="icon"><Clock/></span></p>
 </div>
 <p>{item.cuisine}</p>
-<button onClick={()=>navigate("/recipes/"+item.id)}>view recipe <span className="icon"><ArrowRight/></span></button>
+<button >view recipe <span className="icon"><ArrowRight/></span></button>
         </div>
     }):<h1>Something wrnt wrong</h1>
 }
