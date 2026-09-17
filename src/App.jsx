@@ -7,6 +7,7 @@ import Favorites from "./pages/Favorites"
 import {  lazy, Suspense, useEffect, useState } from "react"
 import { callApi } from "./services/api"
 import { ContexData } from "./ContextData/context"
+import PageNotFound from "./pages/404"
 const SinglePageRecipe=lazy(()=>import("./pages/SinglePageRecipe"))
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
         </Suspense>
 
       }/>
+      <Route path="*" element={<PageNotFound/>}/>
 
      </Routes>
       </ContexData.Provider>
