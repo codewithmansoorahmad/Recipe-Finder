@@ -29,7 +29,7 @@ if(!recipe){
       <button
       type="button"
         onClick={() => {
-          window.scrollTo(0,0)
+          
           navigate(-1);
         }}
       >
