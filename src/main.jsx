@@ -8,6 +8,6 @@ createRoot(document.getElementById('root')).render(
   <Provider store={store}>
   <HashRouter>
     <App />
-  </HashRouter>,
+  </HashRouter>
   </Provider>
 )
