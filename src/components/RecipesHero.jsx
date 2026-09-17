@@ -12,8 +12,7 @@ export default function RecipesHero({
   setErr,
   searcErr,
   setSearchErr,
-  recipes,
-  results,
+
 }) {
   useEffect(() => {
     if (recipe.trim() === "") {
@@ -21,8 +20,6 @@ export default function RecipesHero({
       setResults(null);
     }
   }, [recipe]);
-  let allRecipes = results !== null ? results : recipes;
-  console.log(allRecipes);
 
 
 

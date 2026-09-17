@@ -1,7 +1,8 @@
-import {  lazy, useState } from "react";
+import {  lazy, Suspense, useState } from "react";
 import RecipesHero from "../components/RecipesHero";
 // import RecipesData from "../components/RecipesData";
 import "../css/Recipes.css";
+import LoadingPage from "../components/LoadingPage";
 const RecipesData=lazy(()=>import("../components/RecipesData"))
 
 export default function Recipes({recipes,setRecipes,err,setErr,results,setResults,recipe,setRecipe}) {
@@ -31,6 +32,7 @@ const [searcErr,setSearchErr]=useState("")
         setSearchErr={setSearchErr}
       />
 
+<Suspense fallback={<LoadingPage/>}>
       <RecipesData
         recipes={recipes}
         results={results}
@@ -43,6 +45,7 @@ const [searcErr,setSearchErr]=useState("")
         difficuilty={difficuilty}
         cookTime={cookTime}
       />
+      </Suspense>
     
     </div>
   );
