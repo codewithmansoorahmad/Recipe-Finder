@@ -26,23 +26,7 @@ export default function RecipesHero({
   let allRecipes = results !== null ? results : recipes;
   console.log(allRecipes);
 
-  const filterWIthCuisine = (e) => {
-    setFilterCusine(e.target.value);
-    if (e.target.value === "All") {
-      setResults(null);
-      setRecipe("")
-      return;
-    }
-    let filterRecipes = allRecipes.filter(
 
-      (item) =>{ 
-        console.log(item.cuisine,e.target.value)
-
-     return   item.cuisine === e.target.value;
-      },
-    );
-    setResults(filterRecipes);
-  };
 
   const handleSubmit = async () => {
     if (recipe.trim() === "") return;
@@ -68,7 +52,10 @@ export default function RecipesHero({
           placeholder="Search your recipe"
           value={recipe}
           onChange={(e) => {
+           
             setRecipe(e.target.value);
+
+           
           }}
           onKeyDown={(e) => {
             if (recipe.trim() !== "") {
@@ -95,7 +82,7 @@ export default function RecipesHero({
           <select
             id="select-1"
             value={filterCusine}
-            onChange={(e) => filterWIthCuisine(e)}
+            onChange={(e) => setFilterCusine(e.target.value)}
           >
             <option value="All">All</option>
             <option value="Asian">asian</option>

@@ -3,17 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { addFavorites, removeFavorite } from "../redux/slice";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function RecipesData({ recipes, results, err }) {
+export default function RecipesData({ recipes, results, err,filterCusine }) {
   const favorites = useSelector((state) => state.favorites.favoritesRecipes);
   const dispatch = useDispatch();
-
   let recipesData = results === null ? recipes : results;
+  let filterRecipes=recipesData.filter((item)=>{
+    return filterCusine==="All"||item.cuisine===filterCusine
+  })
   const navigate = useNavigate();
 
   return (
     <div className="recipes-data">
-      {recipesData.length > 0 ? (
-        recipesData.map((item) => {
+      {filterRecipes.length > 0 ? (
+        filterRecipes.map((item) => {
           const isFavorite = favorites.some((recipe) => recipe.id === item.id);
 
           return (

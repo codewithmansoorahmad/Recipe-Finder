@@ -4,9 +4,9 @@ import RecipesData from "../components/RecipesData";
 import "../css/Recipes.css";
 
 export default function Recipes({recipes,setRecipes,err,setErr,results,setResults,recipe,setRecipe}) {
-  const [filterCusine, setFilterCusine] = useState("");
-  const [difficuilty, setDifficuilty] = useState("");
-  const [cookTime, setCookTime] = useState("");
+  const [filterCusine, setFilterCusine] = useState("All");
+  const [difficuilty, setDifficuilty] = useState("All");
+  const [cookTime, setCookTime] = useState("All");
 
 const [searcErr,setSearchErr]=useState("")
   return (
@@ -38,6 +38,7 @@ const [searcErr,setSearchErr]=useState("")
         setErr={setErr}
         recipe={recipe}
         setResults={setResults}
+        filterCusine={filterCusine}
       />
     
     </div>
