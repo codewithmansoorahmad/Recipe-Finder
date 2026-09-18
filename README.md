@@ -1,0 +1,1 @@
+i created this project using html css js and react .In this project i use a api to show recipes with recipe detail and i also use a search bar for searching recipe and you can click recipe it will show recipe full details and you also can add recipe to favorite and then unfavorite 
