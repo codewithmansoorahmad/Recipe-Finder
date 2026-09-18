@@ -38,7 +38,6 @@ function App() {
 
   return (
     <>
-    {/* <ScrollTop/> */}
       <ContexData.Provider value={{recipes,results}}>
 
      <Routes>
