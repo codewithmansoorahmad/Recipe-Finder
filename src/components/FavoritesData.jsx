@@ -5,25 +5,29 @@ import { removeFavorite } from "../redux/slice";
 
 export default function FavoritesData() {
   let favorites = useSelector((state) => state.favorites.favoritesRecipes);
-  console.log(favorites)
-  const navigate=useNavigate()
-  const dispatch=useDispatch()
+  console.log(favorites);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <div className="favorites-data">
-
       {favorites.length > 0 ? (
         <>
-        <h1> favorites Recipe you added</h1>
-        {
-        favorites.map((item) => {
-            
-          return (
+          <h1> favorites Recipe you added</h1>
+          {favorites.map((item) => {
+            return (
               <div
                 className="favorite-recipe"
                 key={item.id}
                 onClick={() => navigate("/recipes/" + item.id)}
               >
-                <button onClick={(e)=>{e.stopPropagation();dispatch(removeFavorite(item.id))}}><Heart color="red" fill="red"/></button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    dispatch(removeFavorite(item.id));
+                  }}
+                >
+                  <Heart color="red" fill="red" />
+                </button>
                 <img src={item.image} alt={item.name} />
                 <h3>{item.name}</h3>
                 <div className="rat-time">
@@ -43,15 +47,15 @@ export default function FavoritesData() {
                   </p>
                 </div>
                 <p>{item.cuisine}</p>
-                <button >
+                <button>
                   view recipe
                   <span className="icon">
                     <ArrowRight />
                   </span>
                 </button>
               </div>
-          );
-        })}
+            );
+          })}
         </>
       ) : (
         <h1>NO favorites are added </h1>

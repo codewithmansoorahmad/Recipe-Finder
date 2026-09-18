@@ -12,7 +12,6 @@ export default function RecipesHero({
   setErr,
   searcErr,
   setSearchErr,
-
 }) {
   useEffect(() => {
     if (recipe.trim() === "") {
@@ -20,8 +19,6 @@ export default function RecipesHero({
       setResults(null);
     }
   }, [recipe]);
-
-
 
   const handleSubmit = async () => {
     if (recipe.trim() === "") return;
@@ -35,7 +32,7 @@ export default function RecipesHero({
     setResults(data.recipes);
     setErr("");
     setSearchErr("");
-    setFilterCusine("All")
+    setFilterCusine("All");
   };
   return (
     <div className="recipes-hero">
@@ -47,10 +44,7 @@ export default function RecipesHero({
           placeholder="Search your recipe"
           value={recipe}
           onChange={(e) => {
-           
             setRecipe(e.target.value);
-
-           
           }}
           onKeyDown={(e) => {
             if (recipe.trim() !== "") {
@@ -110,7 +104,6 @@ export default function RecipesHero({
             <option value="Medium">Medium</option>
           </select>
         </div>
-        
       </div>
     </div>
   );
