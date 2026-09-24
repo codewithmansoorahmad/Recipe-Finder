@@ -24,7 +24,7 @@ export default function PopularRecipes({
                 key={item.id}
                 onClick={() => navigate("/recipes/" + item.id)}
               >
-                <img src={item.image} alt="" />
+                <img src={item.image} alt="" loading="lazy"/>
                 <h3>{item.name}</h3>
                 <div className="rat-time">
                   <p>

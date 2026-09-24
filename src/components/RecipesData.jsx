@@ -62,7 +62,7 @@ export default function RecipesData({
                     fill={isFavorite ? "red" : "white"}
                   />
                 </button>
-                <img src={item.image} alt={item.name} />
+                <img src={item.image} alt={item.name} loading="lazy" />
                 <h3>{item.name}</h3>
                 <div className="rat-time">
                   <p>
